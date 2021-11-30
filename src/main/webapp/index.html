@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Concesionario</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style type="text/css">
+            body {
+                text-align: center;
+            }
+            table, tr, th, td {
+                padding: 5px;
+                border-collapse: collapse;
+                border: 1px solid black;
+            }
+            table {
+                margin: auto;
+            }
+            td {
+                text-align: left;
+            }
+            .button {
+                width: 250px;
+                background-color: lightgrey;
+                border: none;
+                color: black;
+                padding: 10px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 15px;
+                margin: 3px 0;
+                transition-duration: 0.4s;
+                cursor: pointer;
+            }
+            .button:hover {
+                background-color: purple;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Concesionario</h1>
+        <form action="Controlador" method="POST">
+            <button class="button" type="submit" name="action" value="insertar">Añadir automóvil</button><br>
+            <button class="button" type="submit" name="action" value="mostrar">Automóviles</button>
+        </form>
+    </body>
+</html>
