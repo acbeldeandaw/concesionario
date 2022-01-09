@@ -62,6 +62,29 @@ public class Controlador extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("mostrar.jsp");
             rd.forward(request, response);
             
+        } else if (action.compareToIgnoreCase("mostrarRest") == 0) {
+            int pag = 1;
+            int offset = 0;
+            ArrayList paginas = new ArrayList();
+            List<Automovil> listaAutomoviles = Crud.getAutomoviles();
+            
+            if (request.getParameter("pag") != null) {
+                pag = Integer.parseInt(request.getParameter("pag"));
+                offset = (pag - 1) * NUM_LINEAS_PAGINA;
+            }
+            int num_pag = (int) Math.ceil(listaAutomoviles.size() / (double) NUM_LINEAS_PAGINA);
+            listaAutomoviles = Crud.getAutomovilesPaginado(NUM_LINEAS_PAGINA, offset);
+            for (int i = 1; i <= num_pag; i++) {
+                paginas.add(i);
+            }
+            
+            request.setAttribute("lista", listaAutomoviles);
+            request.setAttribute("pag", pag);
+            request.setAttribute("num_pag", num_pag);
+            request.setAttribute("paginas", paginas);
+            RequestDispatcher rd = request.getRequestDispatcher("mostrarRest.html");
+            rd.forward(request, response);
+            
         } else if (action.compareToIgnoreCase("borrar") == 0) {
             int id = Integer.parseInt(request.getParameter("id"));
             if (Crud.deleteAutomovil(id) > 0) {
