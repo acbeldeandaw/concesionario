@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 30-11-2021 a las 21:21:31
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 8.0.10
+-- Host: 127.0.0.1
+-- Generation Time: Jan 09, 2022 at 01:19 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,15 +18,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `automoviles`
+-- Database: `automoviles`
 --
+DROP DATABASE IF EXISTS `automoviles`;
 CREATE DATABASE IF NOT EXISTS `automoviles` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `automoviles`;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `automovil`
+-- Table structure for table `automovil`
 --
 
 DROP TABLE IF EXISTS `automovil`;
@@ -41,7 +42,7 @@ CREATE TABLE `automovil` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `automovil`
+-- Dumping data for table `automovil`
 --
 
 INSERT INTO `automovil` (`id`, `categoria`, `precio`, `marca`, `modelo`, `fab`, `foto`) VALUES
@@ -71,21 +72,21 @@ INSERT INTO `automovil` (`id`, `categoria`, `precio`, `marca`, `modelo`, `fab`, 
 (24, 'Super', 300000, 'McLaren', 'GT', 2021, 'coche6.jpg');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `automovil`
+-- Indexes for table `automovil`
 --
 ALTER TABLE `automovil`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `automovil`
+-- AUTO_INCREMENT for table `automovil`
 --
 ALTER TABLE `automovil`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
