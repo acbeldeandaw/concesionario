@@ -48,7 +48,7 @@
     </head>
     <body>
         <h1>INSERCIÓN DE AUTOMÓVL</h1>
-        <form action="Controlador" method="POST">
+        <form action="Controlador" method="POST" enctype="multipart/form-data">
             <label for="categoria">Categoría</label><br>
             <input type="text" id="categoria" name="categoria"><br>
             <label for="precio">Precio</label><br>
@@ -60,7 +60,7 @@
             <label for="fab">Año de fabricación</label><br>
             <input type="number" id="fab" name="fab" min="1900" max="2099" step="1"><br>
             <label for="foto">Foto</label><br>
-            <input type="text" id="foto" name="foto"><br>
+            <input type="file" id="foto" name="foto"><br>
             <br>
             <button class="button" type="submit" name="action" value="insertarDatos">Añadir automóvl</button><br>
             <button class="button" type="submit" name="action" value="mostrar">Listado de automóviles</button><br>

@@ -44,11 +44,15 @@
                 background-color: purple;
                 color: white;
             }
+            img {
+                width: 20%;
+                margin: 10px;
+            }
         </style>
     </head>
     <body>
         <h1>EDICIÓN DE AUTOMÓVIL</h1>
-        <form action="Controlador" method="POST">
+        <form action="Controlador" method="POST" enctype="multipart/form-data">
             <input type="number" id="id" name="id" value="${a.id}" style="display:none">
             <label for="categoria">Categoría</label><br>
             <input type="text" id="categoria" name="categoria" value="${a.categoria}"><br>
@@ -61,7 +65,8 @@
             <label for="fab">Año de fabricación</label><br>
             <input type="number" id="fab" name="fab" min="1900" max="2099" step="1" value="${a.fab}"><br>
             <label for="foto">Foto</label><br>
-            <input type="text" id="foto" name="foto" value="${a.foto}"><br>
+            <input type="file" id="foto" name="foto"><br>
+            <img src="img/${a.foto}">
             <br>
             <button class="button" type="submit" name="action" value="actualizarDatos">Actualizar</button><br>
             <button class="button" type="submit" name="action" value="mostrar">Listado de automóviles</button><br>

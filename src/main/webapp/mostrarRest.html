@@ -149,6 +149,12 @@
             document.getElementById("btnInsert").addEventListener('click', insertAutomovil);
             document.getElementById("btnUpdate").addEventListener('click', updateAutomovil);
 
+            function getAbsolutePath() {
+                var loc = window.location;
+                var pathName = loc.pathname.substring(0, loc.pathname.lastIndexOf('/') + 1);
+                return loc.href.substring(0, loc.href.length - ((loc.pathname + loc.search + loc.hash).length - pathName.length));
+            }
+
             function clearInsert() {
                 document.getElementById("marcaInsert").value = "";
                 document.getElementById("modeloInsert").value = "";
@@ -160,7 +166,7 @@
 
             function cargarAutomovil() {
                 let id = document.getElementById("idCargar").value;
-                fetch('http://localhost:8080/Concesionario/webresources/generic/automovil/' + id)
+                fetch(getAbsolutePath() + 'webresources/generic/automovil/' + id)
                         .then(response => response.json())
                         .then(json => {
                             console.log(json);
@@ -176,7 +182,7 @@
 
             function cargarAutomoviles() {
                 let tabla = document.getElementById("tabla");
-                fetch('http://localhost:8080/Concesionario/webresources/generic/automoviles/')
+                fetch(getAbsolutePath() + 'webresources/generic/automoviles/')
                         .then(response => response.json())
                         .then(json => {
                             console.log(json);
@@ -258,7 +264,7 @@
             }
 
             function insertAutomovil() {
-                fetch('http://localhost:8080/Concesionario/webresources/generic/automovil/', {
+                fetch(getAbsolutePath() + 'webresources/generic/automovil/', {
                     method: 'POST',
                     body: JSON.stringify({
                         marca: document.getElementById("marcaInsert").value,
@@ -279,7 +285,7 @@
 
             function deleteAutomovil(id) {
                 if (confirm("¿Está seguro/a de que quiere eliminar el automóvil?")) {
-                    fetch('http://localhost:8080/Concesionario/webresources/generic/automovil/' + id, {
+                    fetch(getAbsolutePath() + 'webresources/generic/automovil/' + id, {
                         method: 'DELETE'
                     });
                     cargarAutomoviles();
@@ -290,7 +296,7 @@
             }
 
             function openUpdate(id) {
-                fetch('http://localhost:8080/Concesionario/webresources/generic/automovil/' + id)
+                fetch(getAbsolutePath() + 'webresources/generic/automovil/' + id)
                         .then(response => response.json())
                         .then(json => {
                             console.log(json);
@@ -305,7 +311,7 @@
             }
 
             function  updateAutomovil() {
-                fetch('http://localhost:8080/Concesionario/webresources/generic/automovil/', {
+                fetch(getAbsolutePath() + 'webresources/generic/automovil/', {
                     method: 'PUT',
                     body: JSON.stringify({
                         id: document.getElementById("idUpdate").value,
