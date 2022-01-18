@@ -38,7 +38,7 @@ CREATE TABLE `automovil` (
   `marca` varchar(40) NOT NULL,
   `modelo` varchar(40) NOT NULL,
   `fab` int(4) NOT NULL,
-  `foto` varchar(40) NOT NULL
+  `foto` varchar(400) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
