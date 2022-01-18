@@ -68,7 +68,7 @@ public class Automovil implements Serializable {
     private int fab;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 40)
+    @Size(min = 1, max = 400)
     @Column(name = "foto")
     private String foto;
 
